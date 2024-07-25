@@ -1,0 +1,58 @@
+header {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.font-style-1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.font-style-2 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.background {
+    background-image: url('https://blog.depositphotos.com/wp-content/uploads/2017/07/Floral-patterns-1.jpg.webp'), url('https://blog.depositphotos.com/wp-content/uploads/2017/07/Soothing-nature-backgrounds-2.jpg.webp'), url('https://blog.depositphotos.com/wp-content/uploads/2017/07/Conquering-the-mountains-2.jpg.webp');
+    width: 70%;
+    height: 200px;
+    background-size: 500px 600px;
+    /* background-size: cover; */
+    /* background-repeat: repeat-x; */
+    /* background-repeat: repeat-y; */
+    /* background-repeat: none; */
+    /* background-repeat: no-repeat, no-repeat, no-repeat; */
+    background-repeat: repeat;
+    background-position: 0px 0px, 500px 0px, 1000px, 0px;
+}
+
+a {
+    text-decoration: none;
+    background-color: rgba(255, 0, 0, 0.5);
+    /* padding: 10px 20px; */
+
+}
+
+a:link {
+    color: green;
+}
+
+
+a:visited {
+    color: rgb(223, 37, 37);
+}
+
+
+a:hover {
+    color: white;
+    background-color: red;
+}
+
+a:active {
+    color: yellow;
+}

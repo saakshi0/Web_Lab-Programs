@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Calculator</title>
+    <script src="7a_simpleCalci.js"></script>
+    <style>
+        .container {
+            background-color: bisque;
+            max-width: 60%;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .ip {
+            text-align: center;
+            padding: 20px;
+
+        }
+
+        #result {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Simple Calculator</h1>
+        <div class="ip">
+            <input type="number" id="number1" placeholder="Enter number 1">
+        </div>
+        <div class="ip">
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+        </div>
+        <div class="ip">
+            <input type="number" id="number2" placeholder="Enter number 2">
+        </div>
+        <div class="ip">
+            <button style="width:50px" onclick="calculate()">=</button>
+        </div>
+
+        <h2 id="result">Result: </h2>
+        <br>
+    </div>
+</body>
+
+</html>

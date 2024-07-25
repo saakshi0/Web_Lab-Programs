@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+    <style>
+        .error {
+            color: red;
+        }
+
+        body {
+            background-color: rgba(200, 255, 0, 0.193);
+
+        }
+
+        .container {
+            max-width: 60%;
+            border: 1;
+            margin: 0 auto;
+            padding-left: 30px;
+            /* text-align: center; */
+        }
+
+        .container2 {
+            margin: 0 auto;
+            max-width: 65%;
+            text-align: center;
+            /* background-color: rgba(200, 255, 0, 0.193); */
+
+        }
+
+        #combinedInfo {
+            background-color: black;
+            color: azure;
+        }
+    </style>
+    <script src="7b_validateAndDisplay.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>User Information Form</h1>
+
+        <form id="userInfoForm">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <span class="error" id="nameError"></span>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <span class="error" id="emailError"></span>
+            </div>
+            <div>
+                <label for="mobile">Mobile No:</label>
+                <input type="text" id="mobile" pattern="[0-9]{10}" required>
+                <span class="error" id="mobileError"></span>
+            </div>
+            <div>
+                <label for="gender">Gender:</label>
+                <select id="gender" required>
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <span class="error" id="genderError"></span>
+            </div>
+            <div>
+                <label for="color">Favorite Color:</label>
+                <input type="color" id="color" required>
+                <span class="error" id="colorError"></span>
+            </div>
+            <button type="button" onclick="validateAndDisplay()">Submit</button>
+        </form>
+    </div>
+
+    <div class="container2">
+        <h2>Combined Information</h2>
+        <textarea id="combinedInfo" rows="6" cols="60" readonly></textarea>
+
+    </div>
+
+
+</body>
+
+</html>

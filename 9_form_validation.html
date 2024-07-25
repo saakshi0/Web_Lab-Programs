@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2 style="text-align: center;">Registration Form</h2>
+        <form id="registrationForm" onsubmit="validateForm(); return false;">
+            <div class="form-group">
+                <label for="userId">User ID (5-12 characters):</label>
+                <input type="text" id="userId" name="userId">
+                <div id="userIdError" class="error-message"></div>
+            </div>
+            <div class="form-group">
+                <label for="name">Name (alphabets only):</label>
+                <input type="text" id="name" name="name">
+                <div id="nameError" class="error-message"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password (8 characters with uppercase, special character):</label>
+                <input type="password" id="password" name="password">
+                <div id="passwordError" class="error-message"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <div id="emailError" class="error-message"></div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            // Fetch form input values
+            var userId = document.getElementById('userId').value;
+            var name = document.getElementById('name').value;
+            var password = document.getElementById('password').value;
+            var email = document.getElementById('email').value;
+
+            // Regular expressions for validation
+            var userIdRegex = /^[a-zA-Z0-9]{5,12}$/;
+            var nameRegex = /^[a-zA-Z]+$/;
+            var passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8}$/;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Validation and error messages
+            var errors = false;
+            document.getElementById('userIdError').innerHTML = '';
+            document.getElementById('nameError').innerHTML = '';
+            document.getElementById('passwordError').innerHTML = '';
+            document.getElementById('emailError').innerHTML = '';
+
+            if (!userIdRegex.test(userId)) {
+                document.getElementById('userIdError').innerHTML = 'User ID must be 5-12 characters (alphanumeric)';
+                errors = true;
+            }
+
+            if (!nameRegex.test(name)) {
+                document.getElementById('nameError').innerHTML = 'Name must contain only alphabets';
+                errors = true;
+            }
+
+            if (!passwordRegex.test(password)) {
+                document.getElementById('passwordError').innerHTML = 'Password must be 8 characters with uppercase and special character';
+                errors = true;
+            }
+
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').innerHTML = 'Invalid email address';
+                errors = true;
+            }
+
+            if (!errors) {
+                // Display average marks
+                var averageMarks = calculateAverage();
+                alert('Average of the two best tests: ' + averageMarks.toFixed(2)); // Display average with 2 decimal places
+            }
+        }
+
+        function calculateAverage() {
+            // Add your code to calculate average here
+            var marks1 = parseInt(document.getElementById('marks1').value, 10);
+            var marks2 = parseInt(document.getElementById('marks2').value, 10);
+            var marks3 = parseInt(document.getElementById('marks3').value, 10);
+
+            // Calculate average of two best tests
+            var allMarks = [marks1, marks2, marks3];
+            allMarks.sort(function (a, b) { return b - a; }); // Sort marks in descending order
+            var average = (allMarks[0] + allMarks[1]) / 2;
+
+            return average;
+        }
+    </script>
+
+</body>
+
+</html>
